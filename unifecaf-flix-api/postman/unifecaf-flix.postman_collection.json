@@ -1,0 +1,61 @@
+{
+  "info": {
+    "name": "UniFECAF Flix API",
+    "description": "Coleção dos 3 endpoints obrigatórios da API UniFECAF Flix",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Listar todos os filmes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/controle-filmes/filme",
+          "host": ["{{baseUrl}}"],
+          "path": ["v1", "controle-filmes", "filme"]
+        },
+        "description": "GET /v1/controle-filmes/filme - Lista todos os filmes do acervo."
+      }
+    },
+    {
+      "name": "Buscar filme por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/controle-filmes/filme/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["v1", "controle-filmes", "filme", "1"]
+        },
+        "description": "GET /v1/controle-filmes/filme/:id - Busca um filme pelo ID numérico."
+      }
+    },
+    {
+      "name": "Filtrar filmes por nome ou sinopse",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/controle-filmes/filtro/filme?nome=drama",
+          "host": ["{{baseUrl}}"],
+          "path": ["v1", "controle-filmes", "filtro", "filme"],
+          "query": [
+            {
+              "key": "nome",
+              "value": "drama",
+              "description": "Termo para buscar em nome ou sinopse"
+            }
+          ]
+        },
+        "description": "GET /v1/controle-filmes/filtro/filme?nome=xxx - Filtra por parte do nome ou da sinopse."
+      }
+    }
+  ]
+}
